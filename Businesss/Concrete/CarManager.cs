@@ -38,6 +38,11 @@ namespace Businesss.Concrete
             return _carDal.GetAll();
         }
 
+        public List<Car> GetById(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetCarsByBrandId(int brandId)
         {
             return _carDal.GetAll(b => b.BrandId == brandId);
