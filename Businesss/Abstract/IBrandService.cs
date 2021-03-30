@@ -8,7 +8,7 @@ namespace Businesss.Abstract
     public interface IBrandService
     {
         List<Brand> GetAll();
-        List<Brand> GetById(int brandId);
+        Brand GetById(int brandId);
 
         void Add(Brand brand);
         void Update(Brand brand);

@@ -1,4 +1,5 @@
 ﻿using Businesss.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
@@ -13,7 +14,7 @@ namespace ConsoleUI
 
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine("Car : " + car.Description + " , Price : " + car.DailyPrice);
+                Console.WriteLine("Araba : " + car.Description + " / Fiyat : " + car.DailyPrice);
             }
         }
     }
