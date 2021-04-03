@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<RentalDetailDto> GetRentalDetails()
         {
-            
+            //buraya codları sonra yazacağım
         }
     }
 }

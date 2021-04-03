@@ -1,9 +1,13 @@
 ﻿using Businesss.Abstract;
 using Businesss.Constants;
+using Businesss.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,31 +22,17 @@ namespace Businesss.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.CarName.Length<2)
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-            }
-
-            if (car.DailyPrice > 0 && car.Description.Length > 2)
-            {
-                Console.WriteLine(car.Description + " Tanımlı araç eklendi");
-            }
-            else
-            {
-                Console.WriteLine("Arabanın modeli veya fiyatı hatalı girildi. Veritabanına kaydedilmedi.");
-            }
-
             _carDal.Add(car);
-
             return new SuccessResult(Messages.CarAdded);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-
             return new SuccessResult(Messages.CarDeleted);
         }
 
@@ -78,7 +68,6 @@ namespace Businesss.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-
             return new SuccessResult(Messages.CarUpdated);
         }
     }

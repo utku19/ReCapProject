@@ -1,5 +1,7 @@
 ﻿using Businesss.Abstract;
 using Businesss.Constants;
+using Businesss.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,18 +19,11 @@ namespace Businesss.Concrete
             _brandDal = brandDal;
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
-            if (brand.BrandName.Length>=2)
-            {
-                Console.WriteLine("Araba eklendi");
-            }
-            else
-            {
-                Console.WriteLine("Araba ismi minimum 2 karakter olmalıdır.");
-            }
-
             _brandDal.Add(brand);
+
             return new SuccessResult(Messages.BrandAdded);
         }
 
