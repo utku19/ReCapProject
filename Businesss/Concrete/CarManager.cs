@@ -29,7 +29,6 @@ namespace Businesss.Concrete
             return new SuccessResult(Messages.CarAdded);
         }
 
-        [ValidationAspect(typeof(CarValidator))]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
