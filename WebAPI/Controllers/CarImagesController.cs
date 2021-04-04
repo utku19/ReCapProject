@@ -20,9 +20,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getfilebyid")]
-        public IActionResult GetFileById(int id)
+        public IActionResult GetFileById(int Id)
         {
-            var result = _carImageService.GetById(id);
+            var result = _carImageService.GetById(Id);
             if (result.Success)
             {
                 var b = System.IO.File.ReadAllBytes(result.Data.ImagePath);
