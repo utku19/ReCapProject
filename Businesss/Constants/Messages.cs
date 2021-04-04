@@ -47,5 +47,10 @@ namespace Businesss.Constants
         public static string DeletedCarImage = "Arabanın resmi başarıyla silindi.";
         public static string UpdatedCarImage = "Araba resmi başarıyla güncellendi.";
         public static string FailedCarImageAdd = "Bir araba 5'ten fazla resme sahip olamaz.";
+        
+        public static string CarImageAdded = "Araba resmi eklendi";
+        public static string CarImageDeleted = "Araba resmi silindi.";
+        public static string CarImageUpdated = "Araba resmi güncellendi.";
+        internal static string CarImageCountOfCarError = "Araba resmi maksimum sayıda.";
     }
 }
