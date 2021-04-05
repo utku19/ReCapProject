@@ -19,7 +19,6 @@ namespace Businesss.Concrete
             _customerDal = customerDal;
         }
 
-        [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
@@ -39,7 +38,7 @@ namespace Businesss.Concrete
 
         public IDataResult<Customer> GetById(int customerId)
         {
-            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == customerId), Messages.CustomersListed);
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == customerId), Messages.CustomersListed);
         }
 
         public IResult Update(Customer customer)

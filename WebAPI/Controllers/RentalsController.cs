@@ -31,50 +31,15 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
-        public IActionResult GetById(int rentalId)
+        public IActionResult GetById(int id)
         {
-            var result = _rentalService.GetById(rentalId);
+            var result = _rentalService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
-        //[HttpGet("getrentaldetails")]
-        //public IActionResult GetRentalDetails()
-        //{
-        //    var result = _rentalService.GetRentalDetails();
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
-
-        //[HttpGet("getrentalbycustomer")]
-        //public IActionResult GetCarByBrand(int id)
-        //{
-
-        //    var result = _rentalService.GetRentalDetails(I => I.CustomerId == id);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
-
-        //[HttpGet("getrentalbycar")]
-        //public IActionResult GetCarByColor(int id)
-        //{
-
-        //    var result = _rentalService.GetRentalDetails(I => I.CarId == id);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
 
         [HttpPost("add")]
         public IActionResult Add(Rental rental)
